@@ -6,13 +6,13 @@ public class PlazoFijo extends IAbstraction {
 	public PlazoFijo(Cuenta implementor) {
 		this.implementor = implementor;
 		double previous= this.implementor.getMoney();
-        String type= implementor.getType();
-		if (type.equals("bolivianos")) {
+		Moneda type= implementor.getType();
+		if (type.equals(Moneda.BOLIVIANOS)) {
 			
-		}else if (type.equals("euros")) {
+		}else if (type.equals(Moneda.EUROS)) {
 			previous*=7.70;
 			
-		}else if (type.equals("dolares")) {
+		}else if (type.equals(Moneda.DOLARES)) {
 			previous*=6.96;
 			
 		}
@@ -22,13 +22,13 @@ public class PlazoFijo extends IAbstraction {
 	
 	@Override
 	public void depositar(double value) {
-		String type= implementor.getType();
-		if (type.equals("bolivianos")) {
+		Moneda type= implementor.getType();
+		if (type.equals(Moneda.BOLIVIANOS)) {
 			this.implementor.depositar(value*1.05);
-		}else if (type.equals("euros")) {
+		}else if (type.equals(Moneda.EUROS)) {
 			value*=7.70;
 			this.implementor.depositar(value*1.05);
-		}else if (type.equals("dolares")) {
+		}else if (type.equals(Moneda.DOLARES)) {
 			value*=6.96;
 			this.implementor.depositar(value*1.05);
 		}

@@ -1,15 +1,15 @@
 package bridge;
 
 public class ConcreteAccount extends Cuenta {
-	private String type;
+	private Moneda type;
 	private double money;
 	
 	@Override
-	public String getType() {
+	public Moneda getType() {
 		return type;
 	}
 
-	public ConcreteAccount(String type, double money) {
+	public ConcreteAccount(Moneda type, double money) {
 		this.type = type;
 		this.money = money;
 	}
@@ -22,6 +22,11 @@ public class ConcreteAccount extends Cuenta {
 
 	@Override
 	public void consulta() {
+		if (type.equals(Moneda.DOLARES)) {
+			System.out.println(money/6.96+"$ en Dolares");
+		}else if (type.equals(Moneda.EUROS)) {
+			System.out.println(money/7.70+"$ en Euros");
+		}
 		System.out.println(money+"$ en bolivianos");
 		
 	}
