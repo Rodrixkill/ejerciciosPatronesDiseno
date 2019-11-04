@@ -5,10 +5,10 @@ public class Ahorro extends IAbstraction {
 
     public Ahorro(Moneda moneda,Cuenta implementor) {
 		this.implementor = implementor;
-		double previous= this.implementor.getMoney();
+		double previous= this.implementor.getMoney()*1.02;
 		
 	
-        double newMoney= moneda.getCambiado(previous)*1.02;
+        double newMoney= moneda.getCambiado(previous);
         this.implementor.setMoney(newMoney);
 	}
 	

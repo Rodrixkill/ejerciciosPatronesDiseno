@@ -5,9 +5,9 @@ public class PlazoFijo extends IAbstraction {
 	
 	public PlazoFijo(Moneda moneda,Cuenta implementor) {
 		this.implementor = implementor;
-		double previous= this.implementor.getMoney();
+		double previous= this.implementor.getMoney()*1.05;
 		
-        double newMoney= moneda.getCambiado(previous)*1.05;
+        double newMoney= moneda.getCambiado(previous);
         this.implementor.setMoney(newMoney);
 	}
 	
