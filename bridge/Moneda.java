@@ -1,7 +1,6 @@
 package bridge;
 
-public enum Moneda {
-	DOLARES,
-	EUROS,
-	BOLIVIANOS
+public interface Moneda {
+	public double getCambiado(double price);
+
 }

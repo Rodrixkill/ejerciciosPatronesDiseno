@@ -3,22 +3,16 @@ package bridge;
 public class Client {
     public static void main (String []args){
 
-    	Dolares dolares= new Dolares(100);
-    	
+    	Dolares dolares= new Dolares();
+    	Bolivianos bolivianos= new Bolivianos();
+    	Euros euros= new Euros();
    
-    	dolares.getAhorro().depositar(100.00);
-    	dolares.getAhorro().consulta();
-    	System.out.println();
+    	Ahorro ahorro = new Ahorro(bolivianos, new ConcreteAccount( 100.0));
+    	Credito credito= new Credito(dolares, new ConcreteAccount( 100.0));
+    	PlazoFijo fijo= new PlazoFijo(euros, new ConcreteAccount( 100.0));
     	
-    	Bolivianos cuenta1= new Bolivianos(100.00);
-    	
-    	cuenta1.getCredito().depositar(100.00);
-    	cuenta1.getCredito().consulta();
-    	System.out.println();
-    	
-    	Euros cuenta2= new Euros(1000.00);
-    	
-    	cuenta2.getPlazoFijo().depositar(100.00);
-    	cuenta2.getPlazoFijo().consulta();
+    	ahorro.consulta();
+    	credito.consulta();
+    	fijo.consulta();
     }
 }
