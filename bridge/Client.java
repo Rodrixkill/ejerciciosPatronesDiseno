@@ -2,18 +2,21 @@ package bridge;
 
 public class Client {
     public static void main (String []args){
-    	ConcreteAccount cuenta= new ConcreteAccount(Moneda.DOLARES, 1000.00);
-    	Ahorro ahorro = new Ahorro(cuenta);
+    	Dolares dolares= new Dolares(1000.00);
+    	Ahorro ahorro = new Ahorro(dolares.getConcrete());
+   
     	ahorro.depositar(100.00);
     	ahorro.consulta();
     	System.out.println();
-    	ConcreteAccount cuenta1= new ConcreteAccount(Moneda.BOLIVIANOS, 1000.00);
-    	Credito credito= new Credito(cuenta1);
+    	
+    	Bolivianos cuenta1= new Bolivianos(10000.00);
+    	Credito credito= new Credito(cuenta1.getConcrete());
     	credito.depositar(100.00);
     	credito.consulta();
     	System.out.println();
-    	ConcreteAccount cuenta2= new ConcreteAccount(Moneda.EUROS, 1000.00);
-    	PlazoFijo fijo= new PlazoFijo(cuenta2);
+    	
+    	Euros cuenta2= new Euros(1000.00);
+    	PlazoFijo fijo= new PlazoFijo(cuenta2.getConcrete());
     	fijo.depositar(1000.00);
     	fijo.consulta();
     }
